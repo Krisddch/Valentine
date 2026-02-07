@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Daniel's Valentine</title>
+
+<!-- Romantic Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-  
+
 <style>
 body{
   margin:0;
@@ -13,7 +15,7 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family: 'Playfair Display', serif;
+  font-family:'Playfair Display', serif;
 }
 
 .card{
@@ -25,7 +27,7 @@ body{
   box-shadow:0 15px 40px rgba(0,0,0,.3);
 }
 
-/* ---------- SLIDER ---------- */
+/* ----------- SLIDER ----------- */
 
 .slider{
   position:relative;
@@ -66,7 +68,15 @@ body{
 .left{left:10px;}
 .right{right:10px;}
 
-/* ---------- BUTTONS ---------- */
+/* ----------- TEXT ----------- */
+
+h2{
+  font-family:'Dancing Script', cursive;
+  font-size:34px;
+  color:#ff3f6c;
+}
+
+/* ----------- BUTTONS ----------- */
 
 button{
   padding:12px 25px;
@@ -87,7 +97,7 @@ button{
   position:relative;
 }
 
-/* ---------- CAT ANIMATION ---------- */
+/* ----------- CAT ANIMATION ----------- */
 
 @keyframes popGrow{
   0%{transform:scale(0) rotate(0);opacity:0;}
@@ -109,9 +119,7 @@ button{
 
 <div class="card">
 
-<!-- SLIDER -->
 <div class="slider">
-
   <div class="slide active"><img src="1.jpg"></div>
   <div class="slide"><img src="2.jpg"></div>
   <div class="slide"><img src="3.jpg"></div>
@@ -125,7 +133,6 @@ button{
 
   <div class="arrow left" onclick="prev()">‹</div>
   <div class="arrow right" onclick="next()">›</div>
-
 </div>
 
 <h2>Daniel...</h2>
@@ -140,7 +147,7 @@ button{
 
 <script>
 
-/* ---------- SLIDER ---------- */
+/* -------- SLIDER -------- */
 
 let index=0;
 const slides=document.querySelectorAll(".slide");
@@ -162,7 +169,7 @@ function prev(){
 
 setInterval(next,2500);
 
-/* ---------- RUNAWAY NO ---------- */
+/* -------- RUNAWAY NO -------- */
 
 const noBtn=document.getElementById("no");
 
@@ -174,7 +181,7 @@ noBtn.addEventListener("mouseover",()=>{
   noBtn.style.top=y+"px";
 });
 
-/* ---------- YES CLICK ---------- */
+/* -------- YES CLICK -------- */
 
 document.getElementById("yes").addEventListener("click",(e)=>{
 
@@ -199,11 +206,13 @@ document.getElementById("yes").addEventListener("click",(e)=>{
       justify-content:center;
       align-items:center;
       background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-      font-family:Comic Sans MS;
+      font-family:'Playfair Display', serif;
       text-align:center;
     ">
       <img src="cat.png" style="width:220px;animation:popGrow 1s;">
-      <h1 style="color:#ff3f6c;">CONGRATULATIONS 😻💘</h1>
+      <h1 style="font-family:'Dancing Script', cursive;color:#ff3f6c;font-size:42px;">
+        CONGRATULATIONS 😻💘
+      </h1>
       <p>You unlocked:</p>
       <p>✔ Girlfriend Mode</p>
       <p>✔ Unlimited Cuddles</p>
