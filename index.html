@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Daniel's Valentine</title>
 
-<!-- Luxury romantic handwritten font -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -16,14 +16,14 @@ body{
   justify-content:center;
   align-items:center;
   font-family:'Great Vibes', cursive;
-  font-size:26px;
+  font-size:22px;
 }
 
 .card{
   background:white;
-  width:350px;
-  padding:22px;
-  border-radius:28px;
+  width:340px;
+  padding:20px;
+  border-radius:25px;
   text-align:center;
   box-shadow:0 15px 40px rgba(0,0,0,.3);
 }
@@ -33,9 +33,9 @@ body{
 .slider{
   position:relative;
   width:100%;
-  height:380px;
+  height:360px;
   overflow:hidden;
-  border-radius:20px;
+  border-radius:18px;
 }
 
 .slide{
@@ -57,10 +57,10 @@ body{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  font-size:34px;
+  font-size:28px;
   color:white;
   background:rgba(0,0,0,.45);
-  padding:6px 14px;
+  padding:6px 12px;
   border-radius:50%;
   cursor:pointer;
 }
@@ -71,19 +71,26 @@ body{
 /* ---------- TEXT ---------- */
 
 h2{
-  font-size:56px;
+  font-size:44px;
   color:#ff3f6c;
-  margin:8px 0;
+  margin:6px 0;
+}
+
+.normal-text{
+  font-family:'Montserrat', sans-serif;
+  font-weight:600;
+  font-size:16px;
+  color:#333;
 }
 
 /* ---------- BUTTONS ---------- */
 
 button{
-  padding:14px 30px;
-  font-size:30px;
+  padding:12px 26px;
+  font-size:24px;
   border:none;
-  border-radius:18px;
-  margin:12px;
+  border-radius:14px;
+  margin:10px;
   cursor:pointer;
   font-family:'Great Vibes', cursive;
 }
@@ -108,7 +115,7 @@ button{
 
 .cat-pop{
   position:absolute;
-  width:70px;
+  width:60px;
   animation:popGrow 1s ease-out forwards;
   pointer-events:none;
 }
@@ -137,8 +144,11 @@ button{
 
 <h2>Daniel...</h2>
 
-<p>Will you be Valentine of this</p>
-<p><b>hot, cool, smart, funny, handy, sporty, kind & lovely girl?</b> 😏🔥</p>
+<p>Will you be my Valentine?</p>
+
+<p class="normal-text">
+hot, cool, smart, funny, handy, sporty, kind & lovely girl? 😏🔥
+</p>
 
 <button id="yes">Yes 💘</button>
 <button id="no">No 🙃</button>
@@ -192,8 +202,8 @@ document.getElementById("yes").addEventListener("click",(e)=>{
   cat.src="cat.png";
   cat.className="cat-pop";
 
-  cat.style.left=rect.left+rect.width/2-35+"px";
-  cat.style.top=rect.top+rect.height/2-35+"px";
+  cat.style.left=rect.left+rect.width/2-30+"px";
+  cat.style.top=rect.top+rect.height/2-30+"px";
 
   document.body.appendChild(cat);
 
@@ -209,9 +219,9 @@ document.getElementById("yes").addEventListener("click",(e)=>{
       font-family:'Great Vibes', cursive;
       text-align:center;
     ">
-      <img src="cat.png" style="width:240px;animation:popGrow 1s;">
-      <h1 style="font-size:72px;color:#ff3f6c;">Yayyy 😻💘</h1>
-      <p style="font-size:34px;">You unlocked:</p>
+      <img src="cat.png" style="width:220px;animation:popGrow 1s;">
+      <h1 style="font-size:56px;color:#ff3f6c;">Yayyy 😻💘</h1>
+      <p style="font-size:26px;">You unlocked:</p>
       <p>✔ Girlfriend Mode</p>
       <p>✔ Unlimited Cuddles</p>
       <p>✔ Cat Approval</p>
