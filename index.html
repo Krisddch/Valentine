@@ -1,1 +1,219 @@
-# Valentine
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daniel's Valentine</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:"Comic Sans MS", cursive;
+}
+
+.card{
+  background:white;
+  width:340px;
+  padding:20px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+/* ---------- SLIDER ---------- */
+
+.slider{
+  position:relative;
+  width:100%;
+  height:380px;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:.6s;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.active{opacity:1;}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:30px;
+  color:white;
+  background:rgba(0,0,0,.4);
+  padding:6px 12px;
+  border-radius:50%;
+  cursor:pointer;
+  user-select:none;
+}
+
+.left{left:10px;}
+.right{right:10px;}
+
+/* ---------- BUTTONS ---------- */
+
+button{
+  padding:12px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:12px;
+  margin:10px;
+  cursor:pointer;
+}
+
+#yes{
+  background:#ff3f6c;
+  color:white;
+}
+
+#no{
+  background:#ccc;
+  position:relative;
+}
+
+/* ---------- CAT ANIMATION ---------- */
+
+@keyframes popGrow{
+  0%{transform:scale(0) rotate(0);opacity:0;}
+  50%{transform:scale(1.3) rotate(10deg);opacity:1;}
+  70%{transform:scale(.9) rotate(-10deg);}
+  100%{transform:scale(1) rotate(0);}
+}
+
+.cat-pop{
+  position:absolute;
+  width:60px;
+  animation:popGrow 1s ease-out forwards;
+  pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- SLIDER -->
+<div class="slider">
+
+  <div class="slide active"><img src="1.jpg"></div>
+  <div class="slide"><img src="2.jpg"></div>
+  <div class="slide"><img src="3.jpg"></div>
+  <div class="slide"><img src="4.jpg"></div>
+  <div class="slide"><img src="5.jpg"></div>
+  <div class="slide"><img src="6.jpg"></div>
+  <div class="slide"><img src="7.jpg"></div>
+  <div class="slide"><img src="8.jpg"></div>
+  <div class="slide"><img src="9.jpg"></div>
+  <div class="slide"><img src="10.jpg"></div>
+
+  <div class="arrow left" onclick="prev()">‹</div>
+  <div class="arrow right" onclick="next()">›</div>
+
+</div>
+
+<h2>Daniel...</h2>
+
+<p>Will you be Valentine of this</p>
+<p><b>hot, cool, smart, funny, handy, sporty, kind & lovely girl?</b> 😏🔥</p>
+
+<button id="yes">Yes 💘</button>
+<button id="no">No 🙃</button>
+
+</div>
+
+<script>
+
+/* ---------- SLIDER ---------- */
+
+let index=0;
+const slides=document.querySelectorAll(".slide");
+
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove("active"));
+  slides[i].classList.add("active");
+}
+
+function next(){
+  index=(index+1)%slides.length;
+  showSlide(index);
+}
+
+function prev(){
+  index=(index-1+slides.length)%slides.length;
+  showSlide(index);
+}
+
+setInterval(next,2500);
+
+/* ---------- RUNAWAY NO ---------- */
+
+const noBtn=document.getElementById("no");
+
+noBtn.addEventListener("mouseover",()=>{
+  const x=Math.random()*(window.innerWidth-120);
+  const y=Math.random()*(window.innerHeight-60);
+  noBtn.style.position="absolute";
+  noBtn.style.left=x+"px";
+  noBtn.style.top=y+"px";
+});
+
+/* ---------- YES CLICK ---------- */
+
+document.getElementById("yes").addEventListener("click",(e)=>{
+
+  const btn=e.target;
+  const rect=btn.getBoundingClientRect();
+
+  const cat=document.createElement("img");
+  cat.src="cat.png";
+  cat.className="cat-pop";
+
+  cat.style.left=rect.left+rect.width/2-30+"px";
+  cat.style.top=rect.top+rect.height/2-30+"px";
+
+  document.body.appendChild(cat);
+
+  setTimeout(()=>{
+    document.body.innerHTML=`
+    <div style="
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      font-family:Comic Sans MS;
+      text-align:center;
+    ">
+      <img src="cat.png" style="width:220px;animation:popGrow 1s;">
+      <h1 style="color:#ff3f6c;">CONGRATULATIONS 😻💘</h1>
+      <p>You unlocked:</p>
+      <p>✔ Girlfriend Mode</p>
+      <p>✔ Unlimited Cuddles</p>
+      <p>✔ Cat Approval</p>
+      <p>No refunds. Ever.</p>
+    </div>
+    `;
+  },900);
+});
+
+</script>
+
+</body>
+</html>
